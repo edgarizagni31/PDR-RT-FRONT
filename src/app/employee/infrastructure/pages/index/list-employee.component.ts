@@ -18,7 +18,6 @@ import { DatePipe } from '@angular/common';
 export class ListEmployeeComponent implements OnInit {
   public employees: EmployeeEntity[] = [];
   displayedColumns: string[] = [
-    'employeeId',
     'fullName',
     'salary',
     'contractDate',
