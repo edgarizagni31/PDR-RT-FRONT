@@ -1,0 +1,67 @@
+<div class="form-container">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <mat-card class="form-card">
+      <mat-card-header>
+        <mat-card-title>{{isEditMode ? 'Editar' : 'Crear'}} Empleado</mat-card-title>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div class="form-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="firstName" placeholder="Ingresa el nombre" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput formControlName="lastName" placeholder="Ingresa el apellido" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Salario</mat-label>
+            <input matInput formControlName="salary" type="number" placeholder="Ingresa el salario" />
+          </mat-form-field>
+
+
+          <mat-form-field>
+            <mat-label>Fecha de Contrato</mat-label>
+            <input matInput [matDatepicker]="contractDate" formControlName="contractDate">
+            <mat-datepicker-toggle matIconSuffix [for]="contractDate"></mat-datepicker-toggle>
+            <mat-datepicker #contractDate></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Fecha de Nacimiento</mat-label>
+            <input matInput [matDatepicker]="birthDate" formControlName="birthDate">
+            <mat-datepicker-toggle matIconSuffix [for]="birthDate"></mat-datepicker-toggle>
+            <mat-datepicker #birthDate></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>AFP</mat-label>
+            <mat-select formControlName="afp">
+              <mat-option value="" disabled>Selecciona una AFP</mat-option>
+              <mat-option *ngFor="let option of afps" [value]="option.id">
+                {{ option.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Trabajo</mat-label>
+            <mat-select formControlName="job">
+              <mat-option value="" disabled>Selecciona un Cargo</mat-option>
+              <mat-option *ngFor="let option of jobs" [value]="option.id">
+                {{ option.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="formGroup.invalid">{{isEditMode ? 'Editar' : 'Crear'}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

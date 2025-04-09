@@ -1,0 +1,36 @@
+/* Contenedor del formulario */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;     
+  height: 100vh;          
+  background-color: #f4f4f9; 
+}
+
+.form-card {
+  width: 100%;
+  width: 600px;  
+  padding: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;  
+  gap: 15px;               
+}
+
+mat-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center; 
+}
+
+button {
+  width: 100%;
+  max-width: 200px;
+}
